@@ -1,4 +1,5 @@
 import { FaCar, FaChevronRight } from "react-icons/fa";
+import { FiLogIn } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 interface CardProps {
@@ -20,6 +21,8 @@ function VehicleCard({ client, vehicle, id = '1' }: CardProps) {
             <FaCar aria-hidden="true" />
           </div>
           <div>
+            <p className="flex gap-2 items-center text-[#4CAF50]"><FiLogIn /> Entrada</p>
+            {/* <p className="flex gap-2 items-center text-[#4CAF50]"><FiLogIn />Salida</p> */}
             <p className="font-medium">{client}</p>
             <p className="font-semibold">{vehicle}</p>
           </div>

@@ -1,3 +1,5 @@
+import { FiEdit } from "react-icons/fi";
+import { FaRegClipboard } from "react-icons/fa";
 import { FaChevronLeft } from "react-icons/fa6"
 import { FiUser } from "react-icons/fi";
 import { FiMapPin } from "react-icons/fi";
@@ -14,6 +16,7 @@ import {
 import InfoCard from "./InfoCard";
 import { useState } from "react";
 import Comments from "./Comments";
+import AddRegister from "../Home/AddRegister";
 
 function SelectedVehicle() {
   const [activeTab, setActiveTab] = useState('information');
@@ -22,10 +25,19 @@ function SelectedVehicle() {
     <div>
       <main className="bg-[#f5f5f5] h-screen flex flex-col ">
         <div className="min-h-[10svh] flex items-start justify-start p-4 gap-2 flex-col ">
-          <div className=''>
+          <div className='flex items-center justify-between w-full'>
             <Link to="/">
-              <div className="flex gap-2 items-center underline text-[#2A5CAA]"><FaChevronLeft /> Volver</div>
+              <div className="flex items-center underline text-[#2A5CAA]"><FaChevronLeft /> Volver</div>
             </Link>
+
+            <div className="flex gap-2">
+              <div className='bg-white px-4 flex items-center justify-center w-[55px] h-[55px] rounded-2xl text-2xl'>
+                <FaRegClipboard />
+              </div>
+              <div className='bg-white px-4 flex items-center justify-center w-[55px] h-[55px] rounded-2xl text-2xl'>
+                <AddRegister isEdit />
+              </div>
+            </div>
           </div>
           <div className="relative w-full">
           </div>

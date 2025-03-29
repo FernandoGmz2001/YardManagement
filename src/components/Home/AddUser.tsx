@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogDescription
 } from "@/components/ui/dialog"
 import {
   Select,
@@ -25,13 +26,14 @@ function AddUser() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <p className="text-4xl">
-          <BsPersonAdd className="h-5 w-5" size={24} />
+        <p className="text-2xl">
+          <BsPersonAdd />
         </p>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]" onOpenAutoFocus={(e) => e.preventDefault()}>
         <DialogHeader>
           <DialogTitle>Registrar nuevo usuario</DialogTitle>
+          <DialogDescription>Captura un nuevo usuario del sistema. </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-4 py-4">

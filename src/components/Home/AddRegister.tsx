@@ -2,6 +2,7 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -21,20 +22,31 @@ import { Label } from "@/components/ui/label"
 import { Button } from "@/components/ui/button"
 import { IoMdAddCircleOutline } from "react-icons/io"
 import { Switch } from "@/components/ui/switch"
+import { FiEdit } from "react-icons/fi"
 
-export default function AddRegister() {
+
+interface Props {
+  isEdit: boolean;
+}
+
+export default function AddRegister({ isEdit = false }: Props) {
   return (
     <div>
       <Dialog>
-        <DialogTrigger>
-          <Button>
-            <IoMdAddCircleOutline className="mr-2" />
-            Agregar registro vehicular
-          </Button>
+        <DialogTrigger asChild>
+          {isEdit ? (
+            <p><FiEdit /></p>) : (
+            <Button>
+              <IoMdAddCircleOutline className="mr-2" />
+              Agregar registro vehicular
+            </Button>
+          )
+          }
         </DialogTrigger>
         <DialogContent onOpenAutoFocus={(e) => e.preventDefault()}>
           <DialogHeader>
-            <DialogTitle>Nuevo registro de vehículo</DialogTitle>
+            <DialogTitle>{isEdit ? 'Editar registro de vehículo' : 'Nuevo registro de vehículo'}</DialogTitle>
+            <DialogDescription>{isEdit ? 'Edita un vehículo' : 'Registra un vehículo'}</DialogDescription>
             <div className="flex flex-col gap-6 mt-4">
               {/* Sección de información del cliente */}
               <div className="grid w-full items-center gap-3">

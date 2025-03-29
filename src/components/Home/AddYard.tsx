@@ -6,6 +6,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
+  DialogDescription
 } from "@/components/ui/dialog"
 import {
   Select,
@@ -25,16 +26,16 @@ function AddYard() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors duration-200">
+        <p>
           <FiMapPin className="w-6 h-6 text-primary" />
-        </button>
+        </p>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[450px] rounded-lg shadow-xl">
         <DialogHeader className="border-b pb-4">
-          <DialogTitle className="text-xl font-semibold flex items-center gap-2">
-            <FiMapPin className="w-6 h-6 text-primary" />
+          <DialogTitle >
             <span>Registrar Nueva Yarda</span>
           </DialogTitle>
+          <DialogDescription>Captura yardas que despues sean utilizadas para almacenar los vehiculos. </DialogDescription>
         </DialogHeader>
 
         <div className="grid gap-6 py-6 px-4">

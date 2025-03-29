@@ -63,7 +63,9 @@ function Home() {
             <section className='flex gap-4 flex-col'>
               <div className='flex justify-between'>
                 <h3 className='font-bold'>Registros recientes</h3>
-                <p className='underline flex items-center gap-2 text-[#2A5CAA]'>Ver todos <FaArrowRight /></p>
+                <Link to="/vehicles">
+                  <p className='underline flex items-center gap-2 text-[#2A5CAA]'>Ver todos <FaArrowRight /></p>
+                </Link>
               </div>
               <div className='flex flex-col gap-4'>
                 <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />

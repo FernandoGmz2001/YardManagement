@@ -138,6 +138,15 @@ export default function AddRegister({ isEdit = false }: Props) {
                   </SelectContent>
                 </Select>
               </div>
+
+              <div className="grid w-full items-center gap-3">
+                <Label htmlFor="comment">Comentario</Label>
+                <Input
+                  type="text"
+                  id="comment"
+                  placeholder="Ej: Todo bien"
+                />
+              </div>
             </div>
           </DialogHeader>
           <DialogFooter>

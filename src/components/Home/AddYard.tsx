@@ -22,7 +22,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "../ui/button"
 
-function AddYard() {
+export default function AddYard() {
   return (
     <Dialog>
       <DialogTrigger asChild>
@@ -145,6 +145,7 @@ function AddYard() {
               className="px-6 py-2 rounded-md bg-primary text-white hover:bg-primary-dark transition-colors shadow-sm"
             >
               Registrar Yarda
+
             </Button>
           </div>
         </DialogFooter>
@@ -152,4 +153,3 @@ function AddYard() {
     </Dialog>
   )
 }
-export default AddYard

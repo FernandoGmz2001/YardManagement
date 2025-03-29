@@ -36,7 +36,38 @@ function AddUser() {
           <DialogDescription>Captura un nuevo usuario del sistema. </DialogDescription>
         </DialogHeader>
 
-        <div className="grid gap-4 py-4">
+        <div className="space-y-2 w-full">
+          <Label htmlFor="role">Tipo de usuario</Label>
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="Seleccione un rol" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectLabel>Niveles de acceso</SelectLabel>
+                <SelectItem value="driver">
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-blue-500"></span>
+                    Chofer
+                  </span>
+                </SelectItem>
+                <SelectItem value="supervisor">
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-yellow-500"></span>
+                    Supervisor
+                  </span>
+                </SelectItem>
+                <SelectItem value="admin">
+                  <span className="flex items-center gap-2">
+                    <span className="h-2 w-2 rounded-full bg-red-500"></span>
+                    Administrador
+                  </span>
+                </SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div className="grid gap-4 ">
           {/* Información personal */}
           <div className="grid grid-cols-1 gap-4">
             <div className="space-y-2">
@@ -67,37 +98,6 @@ function AddUser() {
             </div>
           </div>
 
-          <div className="space-y-2 w-full">
-            <Label htmlFor="role">Tipo de usuario</Label>
-            <Select>
-              <SelectTrigger>
-                <SelectValue placeholder="Seleccione un rol" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectGroup>
-                  <SelectLabel>Niveles de acceso</SelectLabel>
-                  <SelectItem value="driver">
-                    <span className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-blue-500"></span>
-                      Chofer
-                    </span>
-                  </SelectItem>
-                  <SelectItem value="supervisor">
-                    <span className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-yellow-500"></span>
-                      Supervisor
-                    </span>
-                  </SelectItem>
-                  <SelectItem value="admin">
-                    <span className="flex items-center gap-2">
-                      <span className="h-2 w-2 rounded-full bg-red-500"></span>
-                      Administrador
-                    </span>
-                  </SelectItem>
-                </SelectGroup>
-              </SelectContent>
-            </Select>
-          </div>
         </div>
 
         <DialogFooter>

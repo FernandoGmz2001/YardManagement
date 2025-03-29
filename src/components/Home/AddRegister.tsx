@@ -26,7 +26,7 @@ export default function AddRegister() {
   return (
     <div>
       <Dialog>
-        <DialogTrigger>
+        <DialogTrigger asChild>
           <Button>
             <IoMdAddCircleOutline className="mr-2" />
             Agregar registro vehicular
@@ -125,6 +125,15 @@ export default function AddRegister() {
                     </SelectGroup>
                   </SelectContent>
                 </Select>
+              </div>
+
+              <div className="grid w-full items-center gap-3">
+                <Label htmlFor="comment">Comentario</Label>
+                <Input
+                  type="text"
+                  id="comment"
+                  placeholder="Ej: Todo bien"
+                />
               </div>
             </div>
           </DialogHeader>

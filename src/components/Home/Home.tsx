@@ -15,12 +15,16 @@ import {
 
 import AddRegister from '@/components/Home/AddRegister';
 import { Link } from 'react-router-dom';
+import AddYard from './AddYard';
 
 function Home() {
   return (
     <>
       <main className="bg-[#f5f5f5] h-screen flex flex-col ">
         <div className="h-[15svh] flex items-center justify-end px-4 gap-2">
+          <div className='bg-white px-4 flex items-center justify-center w-[55px] h-[55px] rounded-2xl text-2xl'>
+            <AddYard />
+          </div>
           <div className='bg-white px-4 flex items-center justify-center w-[55px] h-[55px] rounded-2xl text-2xl'>
             <AddUser />
           </div>

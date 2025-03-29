@@ -2,6 +2,7 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
+  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
@@ -16,22 +17,23 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { BsPersonAdd } from "react-icons/bs"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Button } from "../ui/button"
+import { Button } from "@/components/ui/button"
+import { FiMapPin } from "react-icons/fi";
 
-function AddUser() {
+export default function AddYard() {
   return (
     <Dialog>
       <DialogTrigger asChild>
         <p className="text-4xl">
-          <BsPersonAdd className="h-5 w-5" size={24} />
+          <FiMapPin className="h-5 w-5" size={24} />
         </p>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]" onOpenAutoFocus={(e) => e.preventDefault()}>
         <DialogHeader>
-          <DialogTitle>Registrar nuevo usuario</DialogTitle>
+          <DialogTitle>Registrar nueva yarda</DialogTitle>
+          <DialogDescription>Captura yardas que despues sean utilizadas para almacenar los vehiculos. </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-2 w-full">
@@ -114,5 +116,3 @@ function AddUser() {
     </Dialog>
   )
 }
-
-export default AddUser

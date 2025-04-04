@@ -2,7 +2,7 @@ import { DashboardItem } from '@/components/DashboardItem'
 import { FaArrowRight } from "react-icons/fa6";
 import { FiSearch } from "react-icons/fi";
 import VehicleCard from '@/components/VehicleCard';
-import AddUser from '@/components/Home/AddUser';
+import AddUser from '@/components/Home/users/AddUser';
 import {
   Select,
   SelectContent,

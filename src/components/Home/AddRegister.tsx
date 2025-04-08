@@ -26,7 +26,7 @@ import { FiEdit } from "react-icons/fi"
 
 
 interface Props {
-  isEdit: boolean;
+  isEdit?: boolean;
 }
 
 export default function AddRegister({ isEdit = false }: Props) {

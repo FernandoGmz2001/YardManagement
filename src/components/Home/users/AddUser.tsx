@@ -22,7 +22,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Button } from "../../ui/button.tsx"
 import PasswordInput from "../../comp-23.tsx"
-import { createUser } from "@/services/users.ts"
+import { UserServices } from "./UserServices.ts"
 import { useForm, Controller } from 'react-hook-form'
 import { User } from "@/types/user.ts"
 
@@ -34,6 +34,7 @@ function AddUser() {
     formState: { errors },
     control
   } = useForm<User>();
+  const { postUser } = UserServices()
 
   return (
     <Dialog>
@@ -61,7 +62,7 @@ function AddUser() {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Niveles de acceso</SelectLabel>
-                    <SelectItem value="operator">
+                    <SelectItem value="driver">
                       <span className="flex items-center gap-2">
                         <span className="h-2 w-2 rounded-full bg-blue-500"></span>
                         Chofer
@@ -141,7 +142,7 @@ function AddUser() {
                 Cancelar
               </Button>
             </DialogClose>
-            <Button type="submit" onClick={handleSubmit(createUser)}>
+            <Button type="submit" onClick={handleSubmit(postUser)}>
               Registrar usuario
             </Button>
           </div>

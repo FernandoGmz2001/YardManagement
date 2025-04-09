@@ -15,7 +15,7 @@ import {
 
 import AddRegister from '@/components/Home/AddRegister';
 import { Link } from 'react-router-dom';
-import AddYard from './yards/AddYard.tsx';
+import AddYard from './AddYard';
 
 function Home() {
   return (

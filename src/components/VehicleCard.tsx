@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 interface CardProps {
   client: string;
   vehicle: string;
-  id?: string; // Añadido para construir la ruta dinámica
+  id: string; // Añadido para construir la ruta dinámica
 }
 function VehicleCard({ client, vehicle, id = '1' }: CardProps) {
 

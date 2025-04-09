@@ -6,18 +6,13 @@ export const useUsers = () => {
   const [users, setUsers] = useState<User[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
 
   const loadUsers = async () => {
     try {
       setIsLoading(true);
       setError(null);
-
-      const response = await getUsers(); // Asumiendo paginación en el servicio
-      setUsers(response?.data);
-      setCurrentPage(response.currentPage);
-      setTotalPages(response.totalPages);
+      const response = await getUsers();
+      setUsers(response);
 
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Error al cargar usuarios');
@@ -74,21 +69,14 @@ export const useUsers = () => {
   };
 
   return {
-    // Estados
     users,
     isLoading,
     error,
-    currentPage,
-    totalPages,
 
-    // Acciones
     loadUsers,
     createUser: handleCreateUser,
     updateUser: handleUpdateUser,
     deleteUser: handleDeleteUser,
 
-    // Helpers
-    hasNextPage: currentPage < totalPages,
-    hasPreviousPage: currentPage > 1,
   };
 };

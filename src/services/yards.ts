@@ -1,11 +1,11 @@
 import { Yard } from "@/types/yard";
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+const BASE_URL = import.meta.env.VITE_URL;
 
 // Crear nueva yarda
 export async function createYard(yard: Omit<Yard, 'id'>): Promise<Yard> {
   try {
-    const response = await fetch(`${BASE_URL}/yards`, {
+    const response = await fetch(`${BASE_URL}/api/yards`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

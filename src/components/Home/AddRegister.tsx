@@ -23,6 +23,7 @@ import { Button } from "@/components/ui/button"
 import { IoMdAddCircleOutline } from "react-icons/io"
 import { Switch } from "@/components/ui/switch"
 import { FiEdit } from "react-icons/fi"
+import { MdAdd } from "react-icons/md";
 
 
 interface Props {
@@ -36,9 +37,8 @@ export default function AddRegister({ isEdit = false }: Props) {
         <DialogTrigger asChild>
           {isEdit ? (
             <p><FiEdit /></p>) : (
-            <Button>
-              <IoMdAddCircleOutline className="mr-2" />
-              Agregar registro vehicular
+            <Button size="icon" className="rounded-full p-6">
+              <MdAdd size="" />
             </Button>
           )
           }

@@ -17,14 +17,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { BsPersonAdd } from "react-icons/bs"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import { Button } from "../../ui/button.tsx"
-import PasswordInput from "../../comp-23.tsx"
+import { Button } from "@/components/ui/button.tsx"
+import PasswordInput from "@/components/comp-23.tsx"
 import { UserServices } from "./UserServices.ts"
 import { useForm, Controller } from 'react-hook-form'
 import { User } from "@/types/user.ts"
+import { MdAdd } from "react-icons/md"
 
 
 function AddUser() {
@@ -39,9 +39,9 @@ function AddUser() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <p className="text-2xl">
-          <BsPersonAdd />
-        </p>
+        <Button size="icon" className="rounded-full p-6 text-2xl">
+          <MdAdd size="" />
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px]" onOpenAutoFocus={(e) => e.preventDefault()}>
         <DialogHeader>

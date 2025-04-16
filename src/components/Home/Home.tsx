@@ -1,8 +1,6 @@
 import { DashboardItem } from '@/components/DashboardItem'
-import { MdAdd } from "react-icons/md";
 import { FiSearch } from "react-icons/fi";
 import VehicleCard from '@/components/VehicleCard';
-import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import {
   Select,

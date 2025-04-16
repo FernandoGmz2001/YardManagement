@@ -26,7 +26,7 @@ export async function createYard(yard: Omit<Yard, 'id'>): Promise<Yard> {
 export async function getAllYards(params?: Record<string, string>): Promise<Yard[]> {
   try {
     const query = params ? new URLSearchParams(params).toString() : '';
-    const response = await fetch(`${BASE_URL}/yards?${query}`);
+    const response = await fetch(`${BASE_URL}/api/yards?${query}`);
 
     if (!response.ok) throw new Error('Error obteniendo yardas');
 

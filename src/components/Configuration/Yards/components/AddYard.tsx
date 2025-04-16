@@ -26,6 +26,7 @@ import { Yard } from "@/types/yard";
 import { createYard } from "@/services/yards";
 import { useUsers } from "@/states/users"
 import { useEffect } from "react";
+import { MdAdd } from "react-icons/md";
 
 export default function AddYard() {
   const {
@@ -43,9 +44,9 @@ export default function AddYard() {
   return (
     <Dialog>
       <DialogTrigger asChild>
-        <p>
-          <FiMapPin className="w-6 h-6 text-primary" />
-        </p>
+        <Button size="icon" className="rounded-full p-6 text-2xl">
+          <MdAdd size="" />
+        </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[450px] rounded-lg shadow-xl">
         <DialogHeader className="border-b pb-4">

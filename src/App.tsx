@@ -5,16 +5,20 @@ import {
   Routes
 } from "react-router-dom";
 import './index.css'
-import Vehicles from "./components/Vehicles/Vehicles";
 import SelectedVehicle from "./components/Information/SelectedVehicle";
 import BottomBar from "./components/BottomBar";
 import Configuration from "./components/Configuration/Configuration";
+import Yards from "./components/Configuration/Yards/Yards";
+import Users from "./components/Configuration/Users/Users";
+import Drivers from "./components/Configuration/Drivers/Drivers";
+import Vehicles from "./components/Configuration/Vehicles/Vehicles";
+import Vehicle from "./components/Vehicles/Vehicles";
 
 const MainLayout = () => {
   return (
     <div className="flex flex-col min-h-screen bg-[#F7F7F7]">
-      <main className="flex-1 pb-20"> {/* Padding para el BottomBar */}
-        <Outlet /> {/* Aquí se renderizarán las páginas */}
+      <main className="flex-1 pb-20">
+        <Outlet />
       </main>
       <BottomBar />
     </div>
@@ -28,9 +32,13 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
-          <Route path="/vehicles" element={<Vehicles />} />
+          <Route path="/vehicles" element={<Vehicle />} />
           <Route path="/vehicle/1" element={<SelectedVehicle />} />
           <Route path="/settings" element={<Configuration />} />
+          <Route path="/settings/yards" element={<Yards />} />
+          <Route path="/settings/users" element={<Users />} />
+          <Route path="/settings/drivers" element={<Drivers />} />
+          <Route path="/settings/vehicles" element={<Vehicles />} />
         </Route>
       </Routes>
     </>

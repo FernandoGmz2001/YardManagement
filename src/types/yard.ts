@@ -1,15 +1,15 @@
 import { User } from "./user";
 
 export enum Status {
-  ACTIVE = 'ACTIVE',
-  INACTIVE = 'INACTIVE',
-  MAINTENANCE = 'MAINTENANCE'
+  active = 'active',
+  inactive = 'inactive',
+  under_maintenance = 'under_maintenance'
 }
 
 export interface Yard {
   id: number;
-  name: string;
   location: string;
+  name: string;
   maxCapacity: number;
   status: Status;
   supervisorId: number;

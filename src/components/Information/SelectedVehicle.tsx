@@ -16,7 +16,6 @@ import {
 import InfoCard from "./InfoCard";
 import { useState } from "react";
 import Comments from "./Comments";
-import AddRegister from "../Home/AddRegister";
 
 function SelectedVehicle() {
   const [activeTab, setActiveTab] = useState('information');
@@ -35,7 +34,7 @@ function SelectedVehicle() {
                 <FaRegClipboard />
               </div>
               <div className='bg-white px-4 flex items-center justify-center w-[55px] h-[55px] rounded-2xl text-2xl'>
-                <AddRegister isEdit />
+                {/* <AddRegister isEdit /> */}
               </div>
             </div>
           </div>

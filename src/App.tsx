@@ -13,6 +13,7 @@ import Users from "./components/Configuration/Users/Users";
 import Drivers from "./components/Configuration/Drivers/Drivers";
 import Vehicles from "./components/Configuration/Vehicles/Vehicles";
 import Vehicle from "./components/Vehicles/Vehicles";
+import Register from "./components/Home/Register";
 
 const MainLayout = () => {
   return (
@@ -32,6 +33,7 @@ function App() {
       <Routes>
         <Route element={<MainLayout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/register/new" element={<Register />} />
           <Route path="/vehicles" element={<Vehicle />} />
           <Route path="/vehicle/1" element={<SelectedVehicle />} />
           <Route path="/settings" element={<Configuration />} />

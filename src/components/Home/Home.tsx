@@ -11,9 +11,10 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import AddRegister from './AddRegister';
 import { Link } from 'react-router-dom';
 import BottomBar from '../BottomBar';
+import { MdAdd } from 'react-icons/md';
+import { Button } from '../ui/button';
 
 
 function Home() {
@@ -63,7 +64,11 @@ function Home() {
             <section className='flex gap-4 flex-col'>
               <div className='flex justify-between items-center'>
                 <h3 className='font-bold text-2xl rounded-full'>Registros recientes</h3>
-                <AddRegister isEdit={false} />
+                <Link to="/register/new">
+                  <Button size="icon" className="rounded-full p-6">
+                    <MdAdd size="" />
+                  </Button>
+                </Link>
               </div>
               <div className='flex flex-col gap-4'>
                 <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />

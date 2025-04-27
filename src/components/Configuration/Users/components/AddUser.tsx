@@ -6,8 +6,8 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-  DialogDescription
-} from "@/components/ui/dialog"
+  DialogDescription,
+} from "@/components/ui/dialog";
 import {
   Select,
   SelectContent,
@@ -16,25 +16,37 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Button } from "@/components/ui/button.tsx"
-import PasswordInput from "@/components/comp-23.tsx"
-import { UserServices } from "./UserServices.ts"
-import { useForm, Controller } from 'react-hook-form'
-import { User } from "@/types/user.ts"
-import { MdAdd } from "react-icons/md"
-
+} from "@/components/ui/select";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Button } from "@/components/ui/button.tsx";
+import PasswordInput from "@/components/comp-23.tsx";
+import { UserServices } from "./UserServices.ts";
+import { useForm, Controller } from "react-hook-form";
+import { User } from "@/types/user.ts";
+import { MdAdd } from "react-icons/md";
+import { toast } from "sonner";
+import { useRef } from "react";
 
 function AddUser() {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
   const {
     register,
     handleSubmit,
     formState: { errors },
-    control
+    control,
   } = useForm<User>();
-  const { postUser } = UserServices()
+  const { postUser } = UserServices();
+
+  const handleFormSubmit = async (data: User) => {
+    try {
+      await postUser(data);
+      toast("✅ Registro exitoso");
+      closeButtonRef.current?.click();
+    } catch (error) {
+      toast("❌ Error");
+    }
+  };
 
   return (
     <Dialog>
@@ -43,10 +55,15 @@ function AddUser() {
           <MdAdd size="" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px]" onOpenAutoFocus={(e) => e.preventDefault()}>
+      <DialogContent
+        className="sm:max-w-[425px]"
+        onOpenAutoFocus={(e) => e.preventDefault()}
+      >
         <DialogHeader>
           <DialogTitle>Registrar nuevo usuario</DialogTitle>
-          <DialogDescription>Captura un nuevo usuario del sistema. </DialogDescription>
+          <DialogDescription>
+            Captura un nuevo usuario del sistema.{" "}
+          </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-2 w-full">
@@ -62,7 +79,7 @@ function AddUser() {
                 <SelectContent>
                   <SelectGroup>
                     <SelectLabel>Niveles de acceso</SelectLabel>
-                    <SelectItem value="driver">
+                    <SelectItem value="operator">
                       <span className="flex items-center gap-2">
                         <span className="h-2 w-2 rounded-full bg-blue-500"></span>
                         Chofer
@@ -130,26 +147,26 @@ function AddUser() {
               register={register}
               error={errors.password}
               placeholder="Ingresa tu contraseña"
-              valueAsNumber={false} />
+              valueAsNumber={false}
+            />
           </div>
-
         </div>
 
         <DialogFooter>
-          <div className="flex justify-center gap-3">
-            <DialogClose asChild>
+          <div className="flex flex-col w-full justify-center gap-3">
+            <DialogClose ref={closeButtonRef} asChild>
               <Button type="button" variant="outline">
                 Cancelar
               </Button>
             </DialogClose>
-            <Button type="submit" onClick={handleSubmit(postUser)}>
+            <Button type="submit" onClick={handleSubmit(handleFormSubmit)}>
               Registrar usuario
             </Button>
           </div>
         </DialogFooter>
       </DialogContent>
     </Dialog>
-  )
+  );
 }
 
-export default AddUser
+export default AddUser;

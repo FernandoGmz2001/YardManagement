@@ -1,10 +1,6 @@
-import Home from "./components/Home/Home"
-import {
-  Outlet,
-  Route,
-  Routes
-} from "react-router-dom";
-import './index.css'
+import Home from "./components/Home/Home";
+import { Outlet, Route, Routes } from "react-router-dom";
+import "./index.css";
 import SelectedVehicle from "./components/Information/SelectedVehicle";
 import BottomBar from "./components/BottomBar";
 import Configuration from "./components/Configuration/Configuration";
@@ -14,18 +10,19 @@ import Drivers from "./components/Configuration/Drivers/Drivers";
 import Vehicles from "./components/Configuration/Vehicles/Vehicles";
 import Vehicle from "./components/Vehicles/Vehicles";
 import Register from "./components/Home/Register";
+import { Toaster } from "@/components/ui/sonner";
 
 const MainLayout = () => {
   return (
-    <div className="flex flex-col min-h-screen bg-[#F7F7F7]">
-      <main className="flex-1 pb-20">
+    <div className="flex flex-col h-full">
+      <main className="">
         <Outlet />
       </main>
       <BottomBar />
+      <Toaster />
     </div>
   );
 };
-
 
 function App() {
   return (
@@ -44,7 +41,7 @@ function App() {
         </Route>
       </Routes>
     </>
-  )
+  );
 }
 
-export default App
+export default App;

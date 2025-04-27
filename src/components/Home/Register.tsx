@@ -1,5 +1,5 @@
 // src/pages/Register.tsx
-import { useForm, Controller } from 'react-hook-form';
+import { useForm, Controller } from "react-hook-form";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -15,8 +15,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useNavigate } from "react-router-dom";
-import { useMovements } from '@/states/movements';
-import { Movement } from '@/types/movement';
+import { useMovements } from "@/states/movements";
+import { Movement } from "@/types/movement";
 
 export default function Register() {
   const navigate = useNavigate();
@@ -29,39 +29,39 @@ export default function Register() {
     formState: { errors },
   } = useForm<Movement>({
     defaultValues: {
-      type: 'entry',
-      reason: 'load',
+      type: "entry",
+      reason: "load",
       vehicle: {
         id: 0,
         data: {
-          plate: '',
-          serialNumber: '',
+          plate: "",
+          serialNumber: "",
           keysDelivered: false,
-          vin: '',
-          type: 'truck'
-        }
+          vin: "",
+          type: "truck",
+        },
       },
       driverId: 1,
       yardId: 1,
-      capturedById: 1
-    }
+      capturedById: 1,
+    },
   });
 
   const onSubmit = async (data: Movement) => {
     try {
       await createMovement(data);
-      navigate('/');
+      navigate("/");
     } catch (error) {
-      console.error('Error al registrar movimiento:', error);
+      console.error("Error al registrar movimiento:", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-4 py-6 px-6">
-      <Header
-        title=""
-        returnUrl="/"
-      />
+    <form
+      onSubmit={handleSubmit(onSubmit)}
+      className="flex flex-col gap-4 py-6 px-6 pb-20"
+    >
+      <Header title="" returnUrl="/" />
 
       <div className="flex flex-col gap-6 mt-4">
         <h2 className="font-bold text-2xl">Registro de nuevo vehículo</h2>
@@ -129,7 +129,9 @@ export default function Register() {
           <Input
             id="plate"
             placeholder="Ej: ABC-123"
-            {...register("vehicle.data.plate", { required: "La placa es requerida" })}
+            {...register("vehicle.data.plate", {
+              required: "La placa es requerida",
+            })}
           />
           {errors.vehicle?.data?.plate && (
             <span className="text-sm font-medium text-destructive">
@@ -143,7 +145,9 @@ export default function Register() {
           <Input
             id="serialNumber"
             placeholder="Ej: SN-2024"
-            {...register("vehicle.data.serialNumber", { required: "El número de serie es requerido" })}
+            {...register("vehicle.data.serialNumber", {
+              required: "El número de serie es requerido",
+            })}
           />
           {errors.vehicle?.data?.serialNumber && (
             <span className="text-sm font-medium text-destructive">
@@ -161,12 +165,12 @@ export default function Register() {
               required: "El VIN es requerido",
               minLength: {
                 value: 17,
-                message: "El VIN debe tener 17 caracteres"
+                message: "El VIN debe tener 17 caracteres",
               },
               maxLength: {
                 value: 17,
-                message: "El VIN debe tener 17 caracteres"
-              }
+                message: "El VIN debe tener 17 caracteres",
+              },
             })}
           />
           {errors.vehicle?.data?.vin && (
@@ -204,10 +208,7 @@ export default function Register() {
             name="vehicle.data.keysDelivered"
             control={control}
             render={({ field }) => (
-              <Switch
-                checked={field.value}
-                onCheckedChange={field.onChange}
-              />
+              <Switch checked={field.value} onCheckedChange={field.onChange} />
             )}
           />
           <Label htmlFor="keysDelivered">¿Llaves entregadas?</Label>
@@ -220,7 +221,10 @@ export default function Register() {
             name="driverId"
             control={control}
             render={({ field }) => (
-              <Select onValueChange={(value) => field.onChange(Number(value))} value={field.value.toString()}>
+              <Select
+                onValueChange={(value) => field.onChange(Number(value))}
+                value={field.value.toString()}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Seleccione un conductor" />
                 </SelectTrigger>
@@ -249,7 +253,10 @@ export default function Register() {
             name="yardId"
             control={control}
             render={({ field }) => (
-              <Select onValueChange={(value) => field.onChange(Number(value))} value={field.value.toString()}>
+              <Select
+                onValueChange={(value) => field.onChange(Number(value))}
+                value={field.value.toString()}
+              >
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Seleccione una yarda" />
                 </SelectTrigger>
@@ -276,7 +283,7 @@ export default function Register() {
             type="button"
             variant="secondary"
             className="w-full"
-            onClick={() => navigate('/')}
+            onClick={() => navigate("/")}
           >
             Cancelar
           </Button>

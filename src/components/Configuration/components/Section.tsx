@@ -1,4 +1,3 @@
-// Section.tsx
 import { FiChevronRight } from "react-icons/fi";
 
 interface SectionProps {
@@ -8,19 +7,28 @@ interface SectionProps {
   iconBg?: string;
 }
 
-export function Section({ title, description, icon, iconBg = "bg-gray-100" }: SectionProps) {
+export function Section({
+  title,
+  description,
+  icon,
+  iconBg = "bg-gray-100",
+}: SectionProps) {
   return (
-    <div className="flex items-center gap-4 p-4 rounded-xl transition-all duration-200 group-hover:bg-gray-50 group-active:bg-gray-100 cursor-pointer border border-gray-100 hover:border-gray-200">
-      <div className={`p-3 rounded-lg ${iconBg} shadow-sm`}>
+    <div className="flex items-center gap-3 p-3 active:bg-gray-50 active:scale-[0.98] transition-transform duration-150 rounded-xl cursor-pointer border border-gray-200">
+      <div className={`p-2.5 rounded-lg ${iconBg} shadow-sm flex-shrink-0`}>
         {icon}
       </div>
 
-      <div className="flex-1 min-w-0">
-        <h3 className="text-base font-semibold text-gray-800 truncate">{title}</h3>
-        <p className="text-sm text-gray-600 mt-1 leading-snug">{description}</p>
+      <div className="flex-1 min-w-0 space-y-0.5">
+        <h3 className="text-[15px] font-semibold text-gray-800 truncate">
+          {title}
+        </h3>
+        <p className="text-[13px] text-gray-600 leading-snug line-clamp-2">
+          {description}
+        </p>
       </div>
 
-      <FiChevronRight className="text-gray-400 text-xl ml-2 flex-shrink-0 group-hover:text-gray-600" />
+      <FiChevronRight className="text-gray-500 text-lg ml-1 flex-shrink-0" />
     </div>
   );
 }

@@ -1,7 +1,7 @@
-import { DashboardItem } from '@/components/DashboardItem'
+import { DashboardItem } from "@/components/DashboardItem";
 import { FiSearch } from "react-icons/fi";
-import VehicleCard from '@/components/VehicleCard';
-import { Input } from "@/components/ui/input"
+import VehicleCard from "@/components/VehicleCard";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -10,19 +10,17 @@ import {
   SelectLabel,
   SelectTrigger,
   SelectValue,
-} from "@/components/ui/select"
-import { Link } from 'react-router-dom';
-import BottomBar from '../BottomBar';
-import { MdAdd } from 'react-icons/md';
-import { Button } from '../ui/button';
-
+} from "@/components/ui/select";
+import { Link } from "react-router-dom";
+import BottomBar from "../BottomBar";
+import { MdAdd } from "react-icons/md";
+import { Button } from "../ui/button";
 
 function Home() {
   return (
     <>
-      <main className="h-screen flex flex-col relative">
-        <div className="bg-[#F7F7F7] w-full p-8 h-full min-h-[90svh] rounded-4xl rounded-b-none flex flex-col gap-8 ">
-
+      <main className="min-h-screen flex flex-col relative">
+        <div className="bg-[#F7F7F7] pb-40 w-full p-8 h-full min-h-[90svh]  rounded-b-none flex flex-col gap-8 ">
           <Link to="/vehicles">
             <div className="relative w-full">
               <Input
@@ -36,10 +34,10 @@ function Home() {
               </div>
             </div>
           </Link>
-          <div className='flex flex-col gap-4'>
-            <div className='flex gap-4 items-center justify-between'>
-              <h3 className='font-bold text-2xl'>Resumen</h3>
-              <Select defaultValue='month'>
+          <div className="flex flex-col gap-4">
+            <div className="flex gap-4 items-center justify-between">
+              <h3 className="font-bold text-2xl">Resumen</h3>
+              <Select defaultValue="month">
                 <SelectTrigger className="w-[180px]">
                   <SelectValue placeholder="Selecciona un filtro" />
                 </SelectTrigger>
@@ -52,43 +50,71 @@ function Home() {
                 </SelectContent>
               </Select>
             </div>
-            <div className=' flex gap-4 p-4 rounded-md'>
+            <div className=" flex gap-4 p-4 rounded-md">
               <DashboardItem title="Entradas" quantity={12} />
               <DashboardItem title="Salidas" quantity={15} />
             </div>
           </div>
-          <div className='flex flex-col gap-4'>
+          <div className="flex flex-col gap-4">
             {/* <div className='flex justify-end'> */}
             {/*   <AddRegister /> */}
             {/* </div> */}
-            <section className='flex gap-4 flex-col'>
-              <div className='flex justify-between items-center'>
-                <h3 className='font-bold text-2xl rounded-full'>Registros recientes</h3>
+            <section className="flex gap-4 flex-col">
+              <div className="flex justify-between items-center">
+                <h3 className="font-bold text-2xl rounded-full">
+                  Registros recientes
+                </h3>
                 <Link to="/register/new">
                   <Button size="icon" className="rounded-full p-6">
                     <MdAdd size="" />
                   </Button>
                 </Link>
               </div>
-              <div className='flex flex-col gap-4'>
-                <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />
-                <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />
-                <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />
-                <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />
-                <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />
-                <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />
-                <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />
-                <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />
-                <VehicleCard client="Martin Perez" vehicle='Mazda 6 2013 GT 4 Cil' />
+              <div className="flex flex-col gap-4">
+                <VehicleCard
+                  client="Martin Perez"
+                  vehicle="Mazda 6 2013 GT 4 Cil"
+                />
+                <VehicleCard
+                  client="Martin Perez"
+                  vehicle="Mazda 6 2013 GT 4 Cil"
+                />
+                <VehicleCard
+                  client="Martin Perez"
+                  vehicle="Mazda 6 2013 GT 4 Cil"
+                />
+                <VehicleCard
+                  client="Martin Perez"
+                  vehicle="Mazda 6 2013 GT 4 Cil"
+                />
+                <VehicleCard
+                  client="Martin Perez"
+                  vehicle="Mazda 6 2013 GT 4 Cil"
+                />
+                <VehicleCard
+                  client="Martin Perez"
+                  vehicle="Mazda 6 2013 GT 4 Cil"
+                />
+                <VehicleCard
+                  client="Martin Perez"
+                  vehicle="Mazda 6 2013 GT 4 Cil"
+                />
+                <VehicleCard
+                  client="Martin Perez"
+                  vehicle="Mazda 6 2013 GT 4 Cil"
+                />
+                <VehicleCard
+                  client="Martin Perez"
+                  vehicle="Mazda 6 2013 GT 4 Cil"
+                />
               </div>
             </section>
           </div>
         </div>
         <BottomBar />
-
       </main>
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;
